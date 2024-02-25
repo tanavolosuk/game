@@ -95,7 +95,10 @@ class RoomsPageView extends GetView<RoomsPageController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            
+                            //Navigator.of(context, rootNavigator: true).pop();
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                           ),
