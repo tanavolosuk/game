@@ -14,6 +14,9 @@ class RoomsPageView extends GetView<RoomsPageController> {
         title: const Text('Комнаты для игры', style: TextStyle(color: AppColors.firstPrimeryColor),),
         centerTitle: true,
         backgroundColor: AppColors.secondPrimeryColor,
+        actions: [
+          IconButton(onPressed: ()  => controller.goToRegistration(), icon: Icon(Icons.exit_to_app, color: AppColors.firstPrimeryColor,))
+        ],
       ),
       body: const Center(
         child: Text(

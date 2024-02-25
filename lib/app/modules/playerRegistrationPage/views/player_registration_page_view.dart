@@ -8,7 +8,7 @@ import '../controllers/player_registration_page_controller.dart';
 class PlayerRegistrationPageView
     extends GetView<PlayerRegistrationPageController> {
   const PlayerRegistrationPageView({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,22 +52,21 @@ class PlayerRegistrationPageView
                 width: 400,
                 child: Column(
                   children: [
-                    TextFormField(
+                    TextField(
                       controller: controller.nickNameController,
                       decoration: InputDecoration(
                         focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: AppColors
                                     .firstPrimeryColor)), //цвет когда нажимешь на поле
-                        enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: const BorderSide(
                                 color: AppColors
                                     .secondPrimeryColor)), //цвет постоянный
                         labelText: "Имя пользователя",
                         floatingLabelStyle: const TextStyle(
                             color: AppColors.secondPrimeryColor, fontSize: 16),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
                       ),
                       style: const TextStyle(
                           color: AppColors.secondPrimeryColor,
@@ -81,9 +80,12 @@ class PlayerRegistrationPageView
                 height: 32,
               ),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.firstPrimeryColor,
+                  ),
                   onPressed: () => controller.signUp(),
                   child: const Text('Перейти к комнатам',
-                      style: TextStyle(color: AppColors.secondPrimeryColor)))
+                      style: TextStyle(color: AppColors.secondPrimeryColor, fontSize: 16)))
             ],
           ),
         ))));

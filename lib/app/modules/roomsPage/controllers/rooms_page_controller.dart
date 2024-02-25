@@ -2,6 +2,11 @@ import 'package:game/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class RoomsPageController extends GetxController {
+
+  void goToRegistration () {
+      Get.offNamed(Routes.PLAYER_REGISTRATION_PAGE);
+    }
+
   //TODO: Implement RoomsPageController
 
 
