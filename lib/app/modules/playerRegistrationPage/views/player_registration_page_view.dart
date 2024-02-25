@@ -85,7 +85,8 @@ class PlayerRegistrationPageView
                   ),
                   onPressed: () => controller.signUp(),
                   child: const Text('Перейти к комнатам',
-                      style: TextStyle(color: AppColors.secondPrimeryColor, fontSize: 16)))
+                      style: TextStyle(
+                          color: AppColors.secondPrimeryColor, fontSize: 16)))
             ],
           ),
         ))));
