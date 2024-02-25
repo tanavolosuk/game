@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game/core/colors.dart';
 
 import 'package:get/get.dart';
 
@@ -10,12 +11,13 @@ class RoomsPageView extends GetView<RoomsPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RoomsPageView'),
+        title: const Text('Комнаты для игры', style: TextStyle(color: AppColors.firstPrimeryColor),),
         centerTitle: true,
+        backgroundColor: AppColors.secondPrimeryColor,
       ),
       body: const Center(
         child: Text(
-          'RoomsPageView is working',
+          'Тут будудт доступные игры и их создание',
           style: TextStyle(fontSize: 20),
         ),
       ),

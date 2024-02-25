@@ -81,7 +81,7 @@ class PlayerRegistrationPageView
                 height: 32,
               ),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => controller.signUp(),
                   child: const Text('Перейти к комнатам',
                       style: TextStyle(color: AppColors.secondPrimeryColor)))
             ],
