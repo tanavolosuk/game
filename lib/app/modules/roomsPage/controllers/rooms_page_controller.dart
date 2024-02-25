@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:game/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class RoomsPageController extends GetxController {
+
+  var sessionNameController = TextEditingController();
 
   void goToRegistration () {
       Get.offNamed(Routes.PLAYER_REGISTRATION_PAGE);
