@@ -96,8 +96,7 @@ class RoomsPageView extends GetView<RoomsPageController> {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            
-                            //Navigator.of(context, rootNavigator: true).pop();
+                            Navigator.of(context, rootNavigator: true).pop();
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
