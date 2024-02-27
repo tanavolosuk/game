@@ -6,6 +6,8 @@ import '../modules/playerRegistrationPage/bindings/player_registration_page_bind
 import '../modules/playerRegistrationPage/views/player_registration_page_view.dart';
 import '../modules/roomsPage/bindings/rooms_page_binding.dart';
 import '../modules/roomsPage/views/rooms_page_view.dart';
+import '../modules/splashPage/bindings/splash_page_binding.dart';
+import '../modules/splashPage/views/splash_page_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.GAME_PAGE,
       page: () => const GamePageView(),
       binding: GamePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_PAGE,
+      page: () => const SplashPageView(),
+      binding: SplashPageBinding(),
     ),
   ];
 }

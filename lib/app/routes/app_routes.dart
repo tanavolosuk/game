@@ -6,6 +6,7 @@ abstract class Routes {
   static const PLAYER_REGISTRATION_PAGE = _Paths.PLAYER_REGISTRATION_PAGE;
   static const ROOMS_PAGE = _Paths.ROOMS_PAGE;
   static const GAME_PAGE = _Paths.GAME_PAGE;
+  static const SPLASH_PAGE = _Paths.SPLASH_PAGE;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const PLAYER_REGISTRATION_PAGE = '/player-registration-page';
   static const ROOMS_PAGE = '/rooms-page';
   static const GAME_PAGE = '/game-page';
+  static const SPLASH_PAGE = '/splash-page';
 }

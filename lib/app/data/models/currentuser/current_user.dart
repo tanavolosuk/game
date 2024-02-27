@@ -7,7 +7,7 @@ part 'current_user.g.dart';
 class CurrentUser with _$CurrentUser {
 
   factory CurrentUser({
-    required String id_session,
+    required String? in_session,
     required String username,
   }) = _CurrentUser;
 

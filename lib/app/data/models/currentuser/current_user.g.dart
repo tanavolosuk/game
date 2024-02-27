@@ -8,12 +8,12 @@ part of 'current_user.dart';
 
 _$CurrentUserImpl _$$CurrentUserImplFromJson(Map<String, dynamic> json) =>
     _$CurrentUserImpl(
-      id_session: json['id_session'] as String,
+      in_session: json['in_session'] as String?,
       username: json['username'] as String,
     );
 
 Map<String, dynamic> _$$CurrentUserImplToJson(_$CurrentUserImpl instance) =>
     <String, dynamic>{
-      'id_session': instance.id_session,
+      'in_session': instance.in_session,
       'username': instance.username,
     };

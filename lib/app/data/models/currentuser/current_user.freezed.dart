@@ -20,7 +20,7 @@ CurrentUser _$CurrentUserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CurrentUser {
-  String get id_session => throw _privateConstructorUsedError;
+  String? get in_session => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $CurrentUserCopyWith<$Res> {
           CurrentUser value, $Res Function(CurrentUser) then) =
       _$CurrentUserCopyWithImpl<$Res, CurrentUser>;
   @useResult
-  $Res call({String id_session, String username});
+  $Res call({String? in_session, String username});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$CurrentUserCopyWithImpl<$Res, $Val extends CurrentUser>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id_session = null,
+    Object? in_session = freezed,
     Object? username = null,
   }) {
     return _then(_value.copyWith(
-      id_session: null == id_session
-          ? _value.id_session
-          : id_session // ignore: cast_nullable_to_non_nullable
-              as String,
+      in_session: freezed == in_session
+          ? _value.in_session
+          : in_session // ignore: cast_nullable_to_non_nullable
+              as String?,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$CurrentUserImplCopyWith<$Res>
       __$$CurrentUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id_session, String username});
+  $Res call({String? in_session, String username});
 }
 
 /// @nodoc
@@ -89,14 +89,14 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id_session = null,
+    Object? in_session = freezed,
     Object? username = null,
   }) {
     return _then(_$CurrentUserImpl(
-      id_session: null == id_session
-          ? _value.id_session
-          : id_session // ignore: cast_nullable_to_non_nullable
-              as String,
+      in_session: freezed == in_session
+          ? _value.in_session
+          : in_session // ignore: cast_nullable_to_non_nullable
+              as String?,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -108,19 +108,19 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CurrentUserImpl implements _CurrentUser {
-  _$CurrentUserImpl({required this.id_session, required this.username});
+  _$CurrentUserImpl({required this.in_session, required this.username});
 
   factory _$CurrentUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentUserImplFromJson(json);
 
   @override
-  final String id_session;
+  final String? in_session;
   @override
   final String username;
 
   @override
   String toString() {
-    return 'CurrentUser(id_session: $id_session, username: $username)';
+    return 'CurrentUser(in_session: $in_session, username: $username)';
   }
 
   @override
@@ -128,15 +128,15 @@ class _$CurrentUserImpl implements _CurrentUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CurrentUserImpl &&
-            (identical(other.id_session, id_session) ||
-                other.id_session == id_session) &&
+            (identical(other.in_session, in_session) ||
+                other.in_session == in_session) &&
             (identical(other.username, username) ||
                 other.username == username));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id_session, username);
+  int get hashCode => Object.hash(runtimeType, in_session, username);
 
   @JsonKey(ignore: true)
   @override
@@ -154,14 +154,14 @@ class _$CurrentUserImpl implements _CurrentUser {
 
 abstract class _CurrentUser implements CurrentUser {
   factory _CurrentUser(
-      {required final String id_session,
+      {required final String? in_session,
       required final String username}) = _$CurrentUserImpl;
 
   factory _CurrentUser.fromJson(Map<String, dynamic> json) =
       _$CurrentUserImpl.fromJson;
 
   @override
-  String get id_session;
+  String? get in_session;
   @override
   String get username;
   @override
