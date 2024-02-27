@@ -1,15 +1,27 @@
+import 'dart:convert';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:game/app/data/models/newuser/new_user.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class StorageService extends GetxService {
 
-  late Box box;
+  final storage = new FlutterSecureStorage();
 
-  
-  Future<StorageService> init() async {
-    await Hive.initFlutter();
-    box = await Hive.openBox('xo');
-    return this;
+  Future<String?> readkey() async {//одна общая другая для конкретной задачи
+    return await read('key'); 
   }
+
+  Future<String?> read(String key) async {
+    return await storage.read(key: key);
+  }
+
+  Future<void> savekey(String key) async {
+    await write('key', key);
+  }
+
+  Future<void> write(String key, String data) async {
+    await storage.write(key: key, value: data);
+  }
+
 }

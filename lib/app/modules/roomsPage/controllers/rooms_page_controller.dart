@@ -20,16 +20,23 @@ class RoomsPageController extends GetxController {
     print("GET S");
   }
 
-  void createSession() {
-    bool isLatin(String text) {
-      String pattern = r'^[a-zA-Z ]*$';
-      RegExp regExp = RegExp(pattern);
-      return regExp.hasMatch(text);
-    }
+  void createSession() async{
+    // bool isLatin(String text) {
+    //   String pattern = r'^[a-zA-Z ]*$';
+    //   RegExp regExp = RegExp(pattern);
+    //   return regExp.hasMatch(text);
+    // }
 
-    if (!isLatin(sessionNameController.text)) {
-      showSnack("Имя игры должно быть написано на латинице");
-      return;
+    // if (!isLatin(sessionNameController.text)) {
+    //   showSnack("Имя игры должно быть написано на латинице");
+    //   return;
+    // }
+    var successCreateGame = await netService.writeSession(sessionNameController.text);
+    print(successCreateGame);
+    if(successCreateGame){
+      Get.offNamed(Routes.GAME_PAGE);
+    }else{
+      showSnack('Чет не то');
     }
   }
 

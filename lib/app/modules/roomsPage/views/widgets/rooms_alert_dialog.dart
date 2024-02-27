@@ -70,7 +70,9 @@ Future<dynamic> RoomsAlertDialog(BuildContext context, RoomsPageController contr
                         width: 24,
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.createSession();
+                        },
                         child: const Text('Создать',
                             style: TextStyle(
                                 color: AppColors.secondPrimeryColor,

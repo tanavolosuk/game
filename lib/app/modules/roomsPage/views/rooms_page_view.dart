@@ -43,14 +43,15 @@ class RoomsPageView extends GetView<RoomsPageController> {
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.secondPrimeryColor,
+                  shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
                 ),
                 onPressed: () => controller.getSessions(),
                 child: const Text(
                   "Get sessions",
-                  style: TextStyle(color: AppColors.firstPrimeryColor),
+                  style: TextStyle(color: AppColors.firstPrimeryColor, fontSize: 18),
                 )),
           ),
-          //Obx(() => Text(controller.sessions.toString())),
           const SizedBox(
             height: 32,
           ),

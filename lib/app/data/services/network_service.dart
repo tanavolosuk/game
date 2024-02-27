@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:game/app/data/models/newuser/new_user.dart';
 import 'package:game/app/data/models/session/session.dart';
+import 'package:game/app/data/services/storage_service.dart';
 import 'package:game/core/constans.dart';
 import 'package:get/get.dart';
 
@@ -11,16 +12,13 @@ class NetService extends GetxService {
 
   final private_key = "".obs;
 
-  void writeAuth() {}
+  var storageService = Get.find<StorageService>();
 
-  Future<bool> registration(String username) async { //функция чтобы добавить игрока 
+  Future<bool> writeSession(String sessionname) async {
+    //функция чтобы создать новую игру
     try {
-      var response = await client.post('/user/add/$username');
-
-      //print(response);
-      var user = NewUser.fromJson(response.data);
-      private_key.value = user.key; //сохраняем его пароль
-      
+      var response = await client.post('/session/create/$sessionname',
+          options: Options(headers: {'authorization': private_key.value}));
       return true;
     } catch (e) {
       print(e);
@@ -28,7 +26,25 @@ class NetService extends GetxService {
     }
   }
 
-  Future<Session> getSession(String id) async { //получаем конкретную сессию
+  Future<bool> registration(String username) async {
+    //функция чтобы добавить игрока
+    try {
+      var response = await client.post('/user/add/$username');
+
+      //print(response);
+      var user = NewUser.fromJson(response.data);
+      private_key.value = user.key; //сохраняем его пароль
+      print(private_key.value);
+      storageService.savekey(private_key.value);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<Session> getSession(String id) async {
+    //получаем конкретную сессию
     try {
       var response = await client.get('/session/get/$id');
       var session = Session.fromJson(response.data);
@@ -40,8 +56,9 @@ class NetService extends GetxService {
     }
   }
 
-  Future<List<Session>> getSessions() async { //получаем список сессий
-    try{
+  Future<List<Session>> getSessions() async {
+    //получаем список сессий
+    try {
       var response = await client.get('/session/get');
       List<dynamic> sessionIds = response.data;
       List<Session> result = [];
@@ -50,8 +67,7 @@ class NetService extends GetxService {
         result.add(s);
       }
       return result;
-    }
-    catch(e){
+    } catch (e) {
       print(e);
       print("GET SESSIONS ERROR");
       return [];
