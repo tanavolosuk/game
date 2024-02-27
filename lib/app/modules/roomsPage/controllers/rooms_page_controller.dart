@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game/app/data/models/session/session.dart';
 import 'package:game/app/data/services/network_service.dart';
 import 'package:game/app/routes/app_pages.dart';
+import 'package:game/core/constans.dart';
 import 'package:get/get.dart';
 
 class RoomsPageController extends GetxController {
@@ -34,13 +35,5 @@ class RoomsPageController extends GetxController {
 
   void goToRegistration() {
     Get.offNamed(Routes.PLAYER_REGISTRATION_PAGE);
-  }
-
-  void showSnack(String message, {isError = true}) {
-    Get.showSnackbar(GetSnackBar(
-      message: message,
-      backgroundColor: isError ? Colors.red : Colors.green,
-      duration: const Duration(seconds: 2),
-    ));
   }
 }

@@ -36,16 +36,19 @@ class RoomsPageView extends GetView<RoomsPageController> {
       ),
       body: Column(
         children: [
-          ElevatedButton(
-              onPressed: () => controller.getSessions(),
-              child: const Text("Get sessions")),
-          Obx(() => Text(controller.sessions.toString())),
-          const Center(
-            child: Text(
-              'Тут будудт доступные игры и их создание',
-              style: TextStyle(fontSize: 20),
-            ),
+          SizedBox(height: 32,),
+          Center(
+            child: ElevatedButton(
+                onPressed: () => controller.getSessions(),
+                child: const Text("Get sessions")),
           ),
+          Obx(() => Text(controller.sessions.toString())),
+          // const Center(
+          //   child: Text(
+          //     'Тут будудт доступные игры и их создание',
+          //     style: TextStyle(fontSize: 20),
+          //   ),
+          // ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

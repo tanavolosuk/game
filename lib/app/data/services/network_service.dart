@@ -13,13 +13,13 @@ class NetService extends GetxService {
 
   void writeAuth() {}
 
-  Future<bool> registration(String username) async {
+  Future<bool> registration(String username) async { //функция чтобы добавить игрока 
     try {
       var response = await client.post('/user/add/$username');
 
       //print(response);
       var user = NewUser.fromJson(response.data);
-      private_key.value = user.key;
+      private_key.value = user.key; //сохраняем его пароль
       
       return true;
     } catch (e) {
@@ -28,7 +28,7 @@ class NetService extends GetxService {
     }
   }
 
-  Future<Session> getSession(String id) async {
+  Future<Session> getSession(String id) async { //получаем конкретную сессию
     try {
       var response = await client.get('/session/get/$id');
       var session = Session.fromJson(response.data);
@@ -40,7 +40,7 @@ class NetService extends GetxService {
     }
   }
 
-  Future<List<Session>> getSessions() async {
+  Future<List<Session>> getSessions() async { //получаем список сессий
     try{
       var response = await client.get('/session/get');
       List<dynamic> sessionIds = response.data;
