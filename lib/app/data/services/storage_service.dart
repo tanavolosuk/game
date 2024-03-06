@@ -2,31 +2,37 @@ import 'dart:convert';
 
 import 'package:game/app/data/models/newuser/new_user.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:hive_flutter/adapters.dart';
 
 class StorageService extends GetxService {
 
-  final box = GetStorage('main');
+  late Box box;
+
+  //final box = GetStorage('main');
 
   //GetStorage box = GetStorage('main');
 
   Future<StorageService> init() async {
-    // //await GetStorage.init('main');
-    // box = await GetStorage('main');
+
+    await Hive.initFlutter();
+    box = await Hive.openBox('game');
     return this;
+    // await GetStorage.init('main');
+    // box = await GetStorage('main');
+   // return this;
   }
 
   Future<void> writeUserData(NewUser data) async {
     var jsonData = data.toJson();
     var stringData = jsonEncode(jsonData);
-    await box.write('userData', stringData);
+    await box.put('userData', stringData);
     print('writeUserData');
     print(stringData);
     readUserData();
   }
 
   NewUser? readUserData() {
-    String? stringData = box.read<String>('userData');
+    String? stringData = box.get('userData');
     if (stringData == null) return null;
     Map<String, dynamic> jsonData = jsonDecode(stringData);
     NewUser data = NewUser.fromJson(jsonData);

@@ -13,7 +13,7 @@ class SplashPageController extends GetxController {
   @override
   void onReady() {
     
-    print("ja tut");
+    print("jцлоатувл");
     var keyUser =  storageService.readUserData();
     print(keyUser);
     if (keyUser == null) {

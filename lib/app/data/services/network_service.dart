@@ -18,14 +18,14 @@ class NetService extends GetxService {
   final private_key = "".obs;
 
   Future<NetService> init() async {
-    await readPrefs();
+    // await readPrefs();
     return this;
   }
 
-  Future<void> readPrefs() async {
-    var userReaded = storageService.readUserData();
-    print(userReaded);
-  }
+  // Future<void> readPrefs() async {
+  //   var userReaded = storageService.readUserData();
+  //   print(userReaded);
+  // }
 
   Future<bool> writeSession(String sessionname) async {
     //функция чтобы создать новую игру
