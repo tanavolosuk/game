@@ -9,8 +9,8 @@ class SplashPageController extends GetxController {
 
   var storageService = Get.find<StorageService>();
 
-  void onReady() async{
-    String? keyUser = await storageService.readkey();
+  void onReady() {
+    var keyUser = storageService.readUserData();
     print(keyUser);
     if (keyUser == null) {
       Get.offNamed(Routes.PLAYER_REGISTRATION_PAGE);

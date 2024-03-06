@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class PlayerRegistrationPageController extends GetxController {
   var nickNameController = TextEditingController();
-  var netService = Get.find<NetService>();
+  final netService = Get.find<NetService>(); //сделать переменную приватной
   var storageService = Get.find<StorageService>();
 
 
@@ -24,4 +24,9 @@ class PlayerRegistrationPageController extends GetxController {
       showSnack('Пользователь уже существует');
     }
   }
+
+  // void onReady() {
+  //   super.onReady();
+  //   Get.offNamed(Routes.ROOMS_PAGE);
+  // }
 }

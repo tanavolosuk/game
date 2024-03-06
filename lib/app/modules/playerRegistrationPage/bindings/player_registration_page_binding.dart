@@ -6,9 +6,9 @@ import '../controllers/player_registration_page_controller.dart';
 class PlayerRegistrationPageBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<StorageService>(
-      () => StorageService(),
-    );
+    // Get.lazyPut<StorageService>(
+    //   () => StorageService(),
+    // );
     Get.lazyPut<PlayerRegistrationPageController>(
       () => PlayerRegistrationPageController(),
     );

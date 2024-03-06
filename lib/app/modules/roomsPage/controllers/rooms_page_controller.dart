@@ -8,7 +8,9 @@ import 'package:get/get.dart';
 class RoomsPageController extends GetxController {
   var sessionNameController = TextEditingController();
   var netService = Get.find<NetService>();
+
   RxList<Session> sessions = <Session>[].obs; 
+
   @override
   void onReady() {
     super.onReady();

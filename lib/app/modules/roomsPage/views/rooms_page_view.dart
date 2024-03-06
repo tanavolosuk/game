@@ -34,62 +34,64 @@ class RoomsPageView extends GetView<RoomsPageController> {
           height: kBottomNavigationBarHeight,
         ),
       ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 32,
-          ),
-          Center(
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.secondPrimeryColor,
-                  shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                ),
-                onPressed: () => controller.getSessions(),
-                child: const Text(
-                  "Get sessions",
-                  style: TextStyle(color: AppColors.firstPrimeryColor, fontSize: 18),
-                )),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Obx(() => ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: controller.sessions.length,
-              itemBuilder: (context, id) {
-                var curSession = controller.sessions[id];
-                return GestureDetector(
-                  onTap: () {},
-                  child: Card(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 32,
+            ),
+            Center(
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.secondPrimeryColor,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    elevation: 1,
-                    child: ListTile(
-                      title: Text(
-                        'Имя игры: ${curSession.name}',
-                        style: const TextStyle(
-                            color: AppColors.secondPrimeryColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        'Имя хоста: ${curSession.host_name}',
-                        style: const TextStyle(
-                            color: AppColors.secondPrimeryColor, fontSize: 16),
-                      ),
-                      trailing: Text(
-                        'Статус: ${curSession.game_state}',
-                        style: const TextStyle(
-                            color: AppColors.secondPrimeryColor, fontSize: 16),
+                          borderRadius: BorderRadius.circular(10)),
+                  ),
+                  onPressed: () => controller.getSessions(),
+                  child: const Text(
+                    "Get sessions",
+                    style: TextStyle(color: AppColors.firstPrimeryColor, fontSize: 18),
+                  )),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            Obx(() => ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.sessions.length,
+                itemBuilder: (context, id) {
+                  var curSession = controller.sessions[id];
+                  return GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      elevation: 1,
+                      child: ListTile(
+                        title: Text(
+                          'Имя игры: ${curSession.name}',
+                          style: const TextStyle(
+                              color: AppColors.secondPrimeryColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          'Имя хоста: ${curSession.host_name}',
+                          style: const TextStyle(
+                              color: AppColors.secondPrimeryColor, fontSize: 16),
+                        ),
+                        trailing: Text(
+                          'Статус: ${curSession.game_state}',
+                          style: const TextStyle(
+                              color: AppColors.secondPrimeryColor, fontSize: 16),
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }))
-        ],
+                  );
+                }))
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(

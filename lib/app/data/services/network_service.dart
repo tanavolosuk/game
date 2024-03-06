@@ -1,18 +1,31 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:game/app/data/models/newuser/new_user.dart';
 import 'package:game/app/data/models/session/session.dart';
 import 'package:game/app/data/services/storage_service.dart';
+import 'package:game/app/routes/app_pages.dart';
 import 'package:game/core/constans.dart';
 import 'package:get/get.dart';
 
 class NetService extends GetxService {
+
+  var storageService = Get.find<StorageService>();
+
   Dio client = Dio(BaseOptions(baseUrl: Constants.baseUrl));
+  //Rx<NewUser?> user = null.obs;
+
+  //NewUser? user;
 
   final private_key = "".obs;
 
-  var storageService = Get.find<StorageService>();
+  Future<NetService> init() async {
+    await readPrefs();
+    return this;
+  }
+
+  Future<void> readPrefs() async {
+    var userReaded = storageService.readUserData();
+    print(userReaded);
+  }
 
   Future<bool> writeSession(String sessionname) async {
     //функция чтобы создать новую игру
@@ -32,10 +45,13 @@ class NetService extends GetxService {
       var response = await client.post('/user/add/$username');
 
       //print(response);
-      var user = NewUser.fromJson(response.data);
-      private_key.value = user.key; //сохраняем его пароль
+      var newUser = NewUser.fromJson(response.data);
+      print(newUser);
+      await storageService.writeUserData(newUser);
+      //user.value = newUser;
+      private_key.value = newUser.key; //сохраняем его пароль
       print(private_key.value);
-      storageService.savekey(private_key.value);
+      //storageService.writeUserData(user.value!);
       return true;
     } catch (e) {
       print(e);
@@ -73,4 +89,6 @@ class NetService extends GetxService {
       return [];
     }
   }
+
+
 }

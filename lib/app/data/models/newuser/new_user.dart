@@ -14,7 +14,7 @@ class NewUser with _$NewUser {
     required CurrentUser user,
   }) = _NewUser;
 
-  String get key => 'Basic  ${base64.encode(utf8.encode('${user.username}:$private_key'))}';
+  String get key => 'Basic ${base64.encode(utf8.encode('${user.username}:$private_key'))}';
 
   factory NewUser.fromJson(Map<String, dynamic> json) => _$NewUserFromJson(json);
 }
