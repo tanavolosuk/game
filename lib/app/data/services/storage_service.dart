@@ -6,13 +6,13 @@ import 'package:get_storage/get_storage.dart';
 
 class StorageService extends GetxService {
 
-  late GetStorage box;
+  final box = GetStorage('main');
 
   //GetStorage box = GetStorage('main');
 
   Future<StorageService> init() async {
-    await GetStorage.init('main');
-    box = GetStorage('main');
+    // //await GetStorage.init('main');
+    // box = await GetStorage('main');
     return this;
   }
 
@@ -20,6 +20,9 @@ class StorageService extends GetxService {
     var jsonData = data.toJson();
     var stringData = jsonEncode(jsonData);
     await box.write('userData', stringData);
+    print('writeUserData');
+    print(stringData);
+    readUserData();
   }
 
   NewUser? readUserData() {
@@ -27,7 +30,8 @@ class StorageService extends GetxService {
     if (stringData == null) return null;
     Map<String, dynamic> jsonData = jsonDecode(stringData);
     NewUser data = NewUser.fromJson(jsonData);
-    print(jsonData);
+    print('readUserData');
+    print('hjdcbsj ${data}');
     return data;
   }
 

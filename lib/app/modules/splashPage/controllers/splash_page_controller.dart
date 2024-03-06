@@ -9,13 +9,18 @@ class SplashPageController extends GetxController {
 
   var storageService = Get.find<StorageService>();
 
+
+  @override
   void onReady() {
-    var keyUser = storageService.readUserData();
+    
+    print("ja tut");
+    var keyUser =  storageService.readUserData();
     print(keyUser);
     if (keyUser == null) {
       Get.offNamed(Routes.PLAYER_REGISTRATION_PAGE);
     } else {
       Get.offNamed(Routes.ROOMS_PAGE);
     }
+    super.onReady();
   }
 }

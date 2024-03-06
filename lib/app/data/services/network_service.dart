@@ -46,8 +46,10 @@ class NetService extends GetxService {
 
       //print(response);
       var newUser = NewUser.fromJson(response.data);
+      print('regarega');
       print(newUser);
       await storageService.writeUserData(newUser);
+      print("после записи: ${storageService.readUserData()}");
       //user.value = newUser;
       private_key.value = newUser.key; //сохраняем его пароль
       print(private_key.value);
