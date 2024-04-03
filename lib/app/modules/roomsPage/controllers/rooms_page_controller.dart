@@ -35,7 +35,7 @@ class RoomsPageController extends GetxController {
     // }
     var successCreateGame = await netService.writeSession(sessionNameController.text);
     print(successCreateGame);
-    if(successCreateGame){
+    if(successCreateGame != null){
       Get.offNamed(Routes.GAME_PAGE);
     }else{
       showSnack('Чет не то');

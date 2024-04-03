@@ -27,17 +27,20 @@ class NetService extends GetxService {
   //   print(userReaded);
   // }
 
-  Future<bool> writeSession(String sessionname) async {
-    //функция чтобы создать новую игру
+   Future<Session?> writeSession(String sessionname) async {
     try {
       var response = await client.post('/session/create/$sessionname',
           options: Options(headers: {'authorization': private_key.value}));
-      return true;
+      if (response.statusCode == 200) {
+        return Session.fromJson(response.data);
+      }
+      return null;
     } catch (e) {
       print(e);
-      return false;
+      return null;
     }
   }
+
 
   Future<bool> registration(String username) async {
     //функция чтобы добавить игрока
