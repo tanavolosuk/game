@@ -28,14 +28,14 @@ class AppPages {
       binding: RoomsPageBinding(),
     ),
     GetPage(
-      name: _Paths.GAME_PAGE,
-      page: () => const GamePageView(),
-      binding: GamePageBinding(),
-    ),
-    GetPage(
       name: _Paths.SPLASH_PAGE,
       page: () => const SplashPageView(),
       binding: SplashPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAME_PAGE,
+      page: () => const GamePageView(),
+      binding: GamePageBinding(),
     ),
   ];
 }

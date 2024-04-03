@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:game/app/data/models/newuser/new_user.dart';
 import 'package:game/app/data/models/session/session.dart';
 import 'package:game/app/data/services/storage_service.dart';
-import 'package:game/app/routes/app_pages.dart';
 import 'package:game/core/constans.dart';
 import 'package:get/get.dart';
 
